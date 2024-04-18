@@ -1,4 +1,4 @@
-package DefaultStaticInterfaces;
+package Java8;
 
 public class BMW implements Vehicle{
     @Override

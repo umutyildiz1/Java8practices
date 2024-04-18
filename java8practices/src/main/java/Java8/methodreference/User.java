@@ -1,4 +1,4 @@
-package DefaultStaticInterfaces.methodreference;
+package Java8.methodreference;
 
 public class User {
     private Boolean isReal;

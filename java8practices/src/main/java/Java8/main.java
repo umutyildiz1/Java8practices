@@ -1,6 +1,4 @@
-package DefaultStaticInterfaces;
-
-import java.util.stream.Stream;
+package Java8;
 
 public class main {
     public static void main(String[] args) {

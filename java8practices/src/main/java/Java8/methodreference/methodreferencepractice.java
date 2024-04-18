@@ -1,4 +1,4 @@
-package DefaultStaticInterfaces.methodreference;
+package Java8.methodreference;
 
 import java.util.ArrayList;
 import java.util.List;

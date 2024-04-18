@@ -1,4 +1,4 @@
-package DefaultStaticInterfaces.optional;
+package Java8.optional;
 
 import java.util.Optional;
 
