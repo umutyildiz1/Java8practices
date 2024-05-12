@@ -6,5 +6,8 @@ https://www.baeldung.com/java-8-functional-interfaces
 Learning
 * Functional Programming
 * Design Patterns most used ones
-* WebFlux
+* WebFlux --- Reactive Programming
 * Java 8 Consumer Supplier Predicate Interface definitions
+* Spring Boot Redis Cache mechanism 1st level, 2nd level caching, annotations vs db caching
+* Websocket ??
+* STACK - HEAP VS

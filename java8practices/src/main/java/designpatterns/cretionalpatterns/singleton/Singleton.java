@@ -5,7 +5,7 @@ public class Singleton {
     private static Singleton instance;
     private String value;
 
-    private Singleton(String value) {
+    private Singleton(String value) {//private constructor
         this.value = value;
     }
 
