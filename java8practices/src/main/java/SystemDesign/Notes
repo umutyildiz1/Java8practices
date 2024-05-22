@@ -1,0 +1,16 @@
+Sistem nedir?
+Sistem bir input alıp onu işleyip geri bir output veren her şeydir.
+
+Sistem Tasarımı
+Ne gelecek ? Nasıl gelecek ? Ne üreteceğim ?
+
+Sistem tasarımı neden önemlidir ?
+Sistem tasarımı öneminden dolayı önemlidir yani hiç bir işe
+ planlamadan başlamamalıyız.
+
+ Sistem tasarımı 3 başlık altında incelenir:
+ * Mimari tasarım : Modeller nelerdir? İnputlar nelerdir ? Davranışlar nelerdir vs
+ * Mantıksal tasarım : işleyecek businesslar nasıl ? Business flowları
+ * Fiziksel tasarım : datayı nasıl sunacağız ? sunucuları nerede tutacağız ?
+
+ dk 45
