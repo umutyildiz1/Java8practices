@@ -13,4 +13,55 @@ Sistem tasarımı öneminden dolayı önemlidir yani hiç bir işe
  * Mantıksal tasarım : işleyecek businesslar nasıl ? Business flowları
  * Fiziksel tasarım : datayı nasıl sunacağız ? sunucuları nerede tutacağız ?
 
- dk 45
+Database Selection:
+ACID principle - Base principle
+ACID principle :
+** Bir veritabanının güvenilir, tutarlı ve sağlam bir şekilde çalışmasını
+sağlayan temel özelliklerdir.
+** ACID(Atomicity - Consistency - Isolation - Durability):
+
+*Atomicity:
+Bir transaction ya tamamen gerçekleşmeli aksi durumda hiç gerçekleşmemelidir.
+Transaction process edilirken bir hata durumunda bütün değişiklikler geri alınır.
+Örneğin bir para transferi yapılırken, para bir hesaptan çekilip diğer hesaba yatırılırken
+bir hata oluşması durumunda bütün değişikler geri alınır.
+(Hesaptan para çekilip diğer hesaba para yatırılması tek bir transaction içinde değerlendirilir.)
+
+*Consistency:
+ Veritabanında değişiklik yapılırken tutarlı durum korunmalıdır. Yani foreign key constraints, unique keys c. vs
+ yeni durumda da korunmalıdır yani tutarlı olmalıdır.
+
+* Isolation:
+Birden fazla transaction aynı anda gerçekleştiğinde hepsi birbirinden izole edilmiş ve bağımsız
+gibi davranmalıdır. Bu durum, veri tutarlığını ve işlemlerin birbirlerini etkilememesini korur.
+Isolation level : serializable, repeatable read, read committed, read uncommitted
+
+*Durability:
+Bir transaction başarılı bir şekilde tamamlandığında ne olursa olsun kalıcıdır.
+Yani sistemin çökmesi durumunda veya tekrardan başlatılması durumunda başarı ile sonuçlanmış
+transactionlar kaybolamaz. Örneğin bir para yatırma işlemi başarılı oldu ve veritabanına kaydettik.
+Sistemi tekrardan başlatsakta bu ödeme işlemi tamamlanmıştır ve kaybolamaz. Bu örneğin diske
+vs yazılarak sağlanabilir.
+
+BASE Principle:
+** Genellikle dağıtık sistemler ve NoSql veritabanlarında kullanılır. ACID prensiplerindeki tutarlılık ilkelerinden
+ödün vererek yüksek performanslı çalışmayı hedefler. ACID bir transaction sync bir şekilde olduğunu teyit ederken
+BASE principle bunu garanti etmez.
+*BASE(Basically Available - Soft State - Eventual Consistency)
+
+Basically Available: TODO
+
+Soft State:
+Bir kullanıcının kaydettiği verinin son halini diğer kullanıcı görmek zorunda değildir. Bu bir sorun teşkil etmemelidir.
+Yani veritabanı sürekli olarak güncellenir ve her an tutarlı olması gerekmez. Yani veri değişikliği hemen tüm sisteme
+yansıtılmak zorunda değildir.
+Eventual Consistency:
+Soft statede hemen yansıtılmayan değişiklik bir süre sonra yansıtılır ve veritabanı eninde sonunda tutarlı bir hale gelecektir.
+
+Özetle ACID kritik işlemler için kullanılır genellikle veri yüzde yüz tutarlı olmak zorundadır. BASE örneğin twitter like gibi örnekler
+tutarlı olmasına gerek yoktur ama avaliable olmalıdır data.
+
+BASE'e örnek olarak twitterda like sayılarını görüntülerken dbden yanıt almak zorundayım(Basically Avaliable)
+fakat bu sayı doğru olmayabilir gerçek rakam 100 ise 98 görebilirim(Soft State),
+fakat aradan belli bir zaman geçtikten sonra 100 rakamı görürüm.(Eventually Consistency)
+1.ci saat

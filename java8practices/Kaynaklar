@@ -11,3 +11,5 @@ Learning
 * Spring Boot Redis Cache mechanism 1st level, 2nd level caching, annotations vs db caching
 * Websocket ??
 * STACK - HEAP VS
+* Database Isolation Levels
+* Nosql BASE principle details
