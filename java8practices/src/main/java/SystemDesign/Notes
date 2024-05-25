@@ -58,10 +58,44 @@ yansıtılmak zorunda değildir.
 Eventual Consistency:
 Soft statede hemen yansıtılmayan değişiklik bir süre sonra yansıtılır ve veritabanı eninde sonunda tutarlı bir hale gelecektir.
 
-Özetle ACID kritik işlemler için kullanılır genellikle veri yüzde yüz tutarlı olmak zorundadır. BASE örneğin twitter like gibi örnekler
-tutarlı olmasına gerek yoktur ama avaliable olmalıdır data.
+Özetle ACID kritik işlemler için kullanılır genellikle veri yüzde yüz "tutarlı" olmak zorundadır. BASE örneğin twitter like gibi örnekler
+tutarlı olmasına gerek yoktur ama avaliable" olmalıdır data.
 
 BASE'e örnek olarak twitterda like sayılarını görüntülerken dbden yanıt almak zorundayım(Basically Avaliable)
 fakat bu sayı doğru olmayabilir gerçek rakam 100 ise 98 görebilirim(Soft State),
 fakat aradan belli bir zaman geçtikten sonra 100 rakamı görürüm.(Eventually Consistency)
-1.ci saat
+
+Horizontal Scaling - Vertical Scaling
+
+TODO definitions
+
+Horizontal scaling maliyeti vertical scalingin bir noktasından sonra aslında düşürmeye başlar
+fakat burada da complexity artar ve datayı sync bir şekilde aynı zamanda yükü nasıl dağıtacağımız
+sorusu karşımıza çıkar. Burada da "Load Balancer" çözümleri karşımıza çıkar.
+
+TODO Load balancer definitions and algoritms
+
+Bottle Neck ???
+
+TODO Single point of failure def
+İdeal dünyada sistem tasarımda sistem hiç bir zaman tek bir endpointe bağımlı olmamalı
+yani load balancer gibi yapılarda sistem tek bir noktaya bağımlı hale gelir ve load
+balancerın down olduğu durumda sistem down olmuş olur.
+
+TODO QUESTİON peki load balancerı nasıl yüzde yüz ayakta tutabilirim
+Orchestration tool like Kubernates Openshift
+Sistem ayakta değilse liveness readiness gibi yapılarla restart edilmeli
+belli bir threshold sonrasında yeni bir build alınıp farklı node'a yönlendirme yapılabilir
+
+database replication
+
+img pngde masterdan slave veritabanlarına datayı sync etme şekilleri vardır.
+TODO sync çözümleri
+Master Slave img pngde
+Peer to Peer img1 pngde
+master to master sync data Bankacılık sistemleri
+
+1.35
+
+
+
