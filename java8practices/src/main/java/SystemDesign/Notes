@@ -92,7 +92,7 @@ database replication
 img pngde masterdan slave veritabanlarına datayı sync etme şekilleri vardır.
 TODO sync çözümleri
 Master Slave img pngde
-Peer to Peer img1 pngde
+Peer to Peer img1 pngde async data
 master to master sync data Bankacılık sistemleri
 
 1.35
