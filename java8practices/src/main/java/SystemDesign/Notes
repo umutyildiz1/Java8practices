@@ -67,7 +67,13 @@ fakat aradan belli bir zaman geçtikten sonra 100 rakamı görürüm.(Eventually
 
 Horizontal Scaling - Vertical Scaling
 
-TODO definitions
+Bir veritabanı sunucusuna sahip olduğumuzu düşünelim. Bu sunucunun throughputu
+arttırmak istedik bir sebepten dolayı. Burada iki yöntem vardır. İlki sunucunun
+sahip olduğunu sistem özelliklerini arttırmak gpu ram vs. Bu vertical scalingtir.
+Bunu tercih etmedik dedik ki sistem özelliklerini yükseltmek yerine biz bu sunucuyu
+çoğullayalım çünkü sistem özelliklerini yükseltmek bir noktadan sonra hem maliyetli
+hemde bir sınırı var sonuçta nereye kadar yükselteceğiz :) Bu sunucuyu çoğullamak ise
+horizontal scalingtir.
 
 Horizontal scaling maliyeti vertical scalingin bir noktasından sonra aslında düşürmeye başlar
 fakat burada da complexity artar ve datayı sync bir şekilde aynı zamanda yükü nasıl dağıtacağımız
@@ -95,7 +101,70 @@ Master Slave img pngde
 Peer to Peer img1 pngde async data
 master to master sync data Bankacılık sistemleri
 
-1.35
+More performance --> Cache mechanism
 
+*Cache Types
+- In memory cache
+- Distributed Cache
+- Client side caching --> TODO
+
+img_2de cache strategies görselleri mevcut TODO
+
+Cache aside ve write through cachei bir performans arttırıcı olarak kullanılır.
+
+Cacheleyeceğimiz datanın iki özelliği olması gerekir:
+* Çok sık erişiliyor olması
+* Çok sık güncellenmiyor olmalı
+
+Caching Strategies:
+* On-demand : Verilerinin talep edildiği an cachelenmesidir.
+* Prepopulation : Uygulama ayağa kalkar kalkmaz veriler cachelenir.
+
+Cache Ömrü:
+Absolute Time : Verilen süre dolduğunda veri cacheden silinir.
+Sliding Time : Verilen süre içerisinde veriye istek geldiğinde cache süresi
+sliding time kadar uzamış olur.
+(*** Burada önemli bir detay var sliding time verildiğinde absolute timeda verilmeli
+yoksa sürekli eski veriye erişme ihtimalimiz yüksek olur.)
+
+In Memory Caching :
+
+In memory cache uygulamanın bulunduğu sunucuda ilgili verilerin sunucunun ram
+belleğinde tutulmasıdır. Cache boyutu sunucunun ram özellikleriyle ile doğru orantılıdır.
+Uygulama tek bir instance ise sorunsuz şekilde kullanılabilir fakat uygulama da
+birden fazla instance çalışıyorsa ve bir load balancer yönlendirme yapıyorsa
+kullanıcı her istek yaptığında farklı sunucuya gidebileceğinden ve farklı cachelere gideceğinden
+dolayı farklı veri ile karşılaşabilir. Bu sorunu load balancer üzerinde
+"Sticky Session" özelliği ile istek yapan kullanıcının sürekli aynı
+instance'a yönlendirilmesini sağlayabiliriz fakat uygulama birden fazla sunucu
+çalışıyorsa Distributed Cache daha doğrudur.
+
+
+
+--> CDN (Content Delivery Network)
+CDNler web içeriğini(HTML, JS, CSS, images, videos vs) gibi parçaları coğrafi
+olarak dağıtılmış sunucularda saklayarak internet trafiğini optimize eder ve
+yükleme sürelerini kısaltır. Örnek olarak ben türk sunucusunda bulunan A sitesine giriyorum ve 40 ms te
+bağlanabiliyorum. Fakat Amerikada yaşayan biri bu A sitesine 200 ms de bağlanabiliyor.
+Çünkü sunucu türkiyede ve amerikadaki adamda buraya bağlanmak zorunda.
+CDN kullanıldığında ise web içeriğini hem amerika sunucusunda hemde türkiyede tuttuğunu düşünelim.
+Amerikadaki adam amerika sunucusuna türkiyedeki adam türkiye sunucusuna bağlanıyor.
+Amerikadaki adamın kendi ülkesinde sunucuya bağlandığından dolayı bağlanma hızı artıyor.
+CDN'i CDN sağlayıcıları üzerinden kurabiliriz.Kullanıcı web sitesine erişmek istediğinde
+dns sorgusu yapılır ve en yakın sunucuya yönlendirilir.
+Fakat avantajı olduğu kadar dezavantajları da vardır.
+* Maliyet
+* Cachelenme sorunları : eski ve yeni içerik sync olmayabilir.
+* Teknik olarak karmaşık bir yapıdır.
+* Servis sağlayıcısına bağımlı hale geliriz
+
+
+
+* Session
+
+- Stateful
+-Stateless
+
+2.ci saat
 
 
