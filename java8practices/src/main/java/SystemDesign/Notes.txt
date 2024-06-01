@@ -161,10 +161,16 @@ Fakat avantajı olduğu kadar dezavantajları da vardır.
 
 
 * Session
+Kullanıcı adı ve şifreyle giriş yaptığımızı düşünelim. Her yeni istekte
+bu kullanıcı adı şifreyi sunmak yerine "Session" bilgisini sunmamız yeterli olur.
 
-- Stateful
--Stateless
+- Stateful --> veriler in memory tutulur. Bir podun tuttuğu bilgiyi diğer pod ulaşamaz. Load Balancer üzerinde
+sticky session tanımı vs ile çözüm sağlanabilir. "Single of Failure"
+- Stateless --> veriler tüm nodeların ortak olduğu bir cache veya db üzerinde tutulur,
+böylelikle bütün podlar aynı veriye ulaşabilir.
+TODO pros cons
 
-2.ci saat
+
+2:20 saat
 
 
