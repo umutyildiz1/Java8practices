@@ -87,6 +87,8 @@ TODO Single point of failure def
 İdeal dünyada sistem tasarımda sistem hiç bir zaman tek bir endpointe bağımlı olmamalı
 yani load balancer gibi yapılarda sistem tek bir noktaya bağımlı hale gelir ve load
 balancerın down olduğu durumda sistem down olmuş olur.
+Single of Failure'nın %100 bir çözümü yoktur her sistem
+tasarımın bir yerinde yüksek ihtimalle "single of failure" vardır.
 
 TODO QUESTİON peki load balancerı nasıl yüzde yüz ayakta tutabilirim
 Orchestration tool like Kubernates Openshift
@@ -171,6 +173,24 @@ böylelikle bütün podlar aynı veriye ulaşabilir.
 TODO pros cons
 
 
-2:20 saat
+* Message Queue
+strategy --> FIFO
+Producer --> Queue --> Consumer
+RabbitMq vs Kafka
+RabbitMq --> Multi consume 2:30 arası tekrar dinle araştır definition yaz!! TODO
 
+*** "Throughput" : Bir sistemin birim zamanda işleyebileceği
+iş veya işlem miktarını temsil eder.
+
+EventMesh ? TODO
+
+*Monitoring - Metrics - Automation
+İzlemeyen bir sistem tasarımı eksik bir sistem tasarımıdır.
+
+-Monitoring toolarının 2 tür çalışma şekli vardır:
+* Agent : Monitoring tool sunucu içerisinde çalışır yani uygulamanın kendi
+ memorysini kullanır  ve anlık olarak cpu , ram ,
+  healtcheck değerlerini ilgili toola aktarır.
+
+  2:40
 
