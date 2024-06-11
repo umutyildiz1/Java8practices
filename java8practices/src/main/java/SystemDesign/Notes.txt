@@ -182,15 +182,22 @@ RabbitMq --> Multi consume 2:30 arası tekrar dinle araştır definition yaz!! T
 *** "Throughput" : Bir sistemin birim zamanda işleyebileceği
 iş veya işlem miktarını temsil eder.
 
-EventMesh ? TODO
+EventMesh ? TODO bölüm 1 2:35
 
 *Monitoring - Metrics - Automation
-İzlemeyen bir sistem tasarımı eksik bir sistem tasarımıdır.
+İzlenmeyen bir sistem tasarımı eksik bir sistem tasarımıdır.
 
 -Monitoring toolarının 2 tür çalışma şekli vardır:
-* Agent : Monitoring tool sunucu içerisinde çalışır yani uygulamanın kendi
- memorysini kullanır  ve anlık olarak cpu , ram ,
+* Agent : Monitoring tool sunucu içerisinde çalışır ve  anlık olarak cpu , ram ,
   healtcheck değerlerini ilgili toola aktarır.
+* Uygulamanın kendi içerisinde bir library vs kullanarak uygulamanın kendi
+memorysini kullanan ve ilgili monitoring toola aktaran yöntemler vardır.
 
-  2:40
+DB Sharding :
+TODO
+
+QPS (QUERY PER SECOND)
+Bir sistem saniyede ne kadar kullanılıyor'un metriği aslında
+
+2:55
 
