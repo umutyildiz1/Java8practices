@@ -1,0 +1,14 @@
+https://github.com/mgmetehan/redis-cache
+
+Cache yapısı neye çözüm getirir ?
+--> Her istekte sabit veriyi response olarak dönen veritabanına
+sürekli istek atmak bir maliyettir. Belirli zaman aralıklarında veriyi
+güncelleyen cache ile cache'e istek attığımızda bu maliyeti düşürürüz.
+
+Redis:
+* In memory veri yapısı deposudur. DB, cache, ve message broker ?
+olarak çalışabilir.
+* Rediste veriler "Key - Value" şeklinde depolanır.
+* Redisi diğer ürünlerden ayıran fark ise çeşitli veri yapılarını desteklemesidir.
+
+50. dk
