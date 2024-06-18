@@ -199,5 +199,19 @@ TODO
 QPS (QUERY PER SECOND)
 Bir sistem saniyede ne kadar kullanılıyor'un metriği aslında
 
-2:55
+--- SYSTEM DESIGN INTERVIEW TIPS ---
+-- Direk çizime başlamamak gerek
+-- interviewda sorulan sorunun detaylarını anlamak için soru sorulmalı
+Mesela kredi kartının fraud olup olmadığını kontrol eden bir sistemin designı sorusunda
+- ne kadar qps olacak vs gibi sorular sorulmalı
+-
+*** DO ***
+- Sistemin gereksinimlerini anlamak için sorular sormak
+- Basit bir high level design
+- Derinlemesine tasarım
+
+
+*** DONT ***
+- Hiç bir zaman mükemmel bir sistem yoktur. Bunu sakın söyleme !!!
+- Teknoloji ismi redis veya kafka gibi isimler tasarımda yazma !!!
 
