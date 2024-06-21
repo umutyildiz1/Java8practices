@@ -15,3 +15,5 @@ Learning
 * Nosql BASE principle details
 * Circuit Breaker
 * Message Broker
+* CQRS
+* Redis Lettuce

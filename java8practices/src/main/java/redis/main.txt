@@ -11,4 +11,79 @@ olarak çalışabilir.
 * Rediste veriler "Key - Value" şeklinde depolanır.
 * Redisi diğer ürünlerden ayıran fark ise çeşitli veri yapılarını desteklemesidir.
 
-50. dk
+-- Redis Sentinel
+
+Redis Sentinel, Redis'in yüksek erişebilirlik ve otomatik başarısızlık yönetimi için
+kullanılan bir yapısıdır. Redis Sentinel, Redis sunucularını izleyip durumlarını
+kontrol eder. Bir sunucu down durumuna geçtiğinde otomatik olarak yeniden yapılandırma
+ve yedek sunucuları ana sunucu olarak tanımlama işlemlerinden sorumludur.(master - slave)
+
+Özellikleri :
+
+* "Sunucu izleme(Monitoring)" : Redis sunucularını sürekli olarak izler. Bu sayede,
+sunucu başlatma, durdurma veya çökme durumlarında hemen müdahale edilebilir.
+
+* "Otomatik Yedekleme (Automatic Failover)" : Master redis sunucusu çöktüğünde veya
+isteklere yanıt veremez hale geldiğinde slave olan sunucuyu master olarak tanımlar
+böylelikle kesinti min indirilir.
+
+* "Yapılandırma Yönetimi (Configuration Management)" :
+Redis Sentinel, Redis konfigurasyonunu yönetir ve değişiklikler yapabilir. Örneğin,
+yeni sunucular eklemek veya mevcut sunucularının yapılandırmasını değiştirmek gibi vs.
+
+* "Load Balancing" : İstekleri master ve slave sunucular arasında dağıtabilir.
+
+-- Redis Cluster
+Büyük datayı birden fazla node'a bölerek işlemeye yarar ve bu yüksek throught sağlar.
+img.png
+
+** Her node master slave birbiri arasında "gossip" mesajı ile iletişim kurar ve
+datalar master ve slave nodelar arasında sync olur.
+
+Neden Redis Cluster ve Redis Sentinel'e ihtiyaç duyarız ?
+
+Master nodun down durumunda "Redis Sentinel" bu durumu izler ve
+yükü yeteri kadar node'a dağıtarak yükü işleyebilir hale getirir. Fakat
+buradaki yeni kullanıma başlayan slave nodelar ile down duruma geçen
+master nodeun arasında data farklılığı olmamasını ise redis cluster
+yönetir.
+
+Redis Persistence
+
+Redis Persistence, Redis veritabaninda verilerin kalici olarak
+ depolanmasi icin kullanilan bir mekanizmadir.
+  Redis, verileri bellekte saklamakla birlikte, verilerin kalici
+  olmasini saglayarak veri kaybini onler ve veri butunlugunu saglar.
+   Redis Persistence'i saglamak icin uc temel yontem vardir:
+
+No Persistence (Kalicilik Yok): Bu durumda, Redis verileri disk
+ uzerinde kalici olarak depolanmaz. Yani, bellekteki veriler herhangi
+ bir disk kaydina yazilmaz. Bu secenek, yuksek performans gerektiren
+  uygulamalarda kullanilabilir, ancak sunucu yeniden baslatildiginda
+   veya beklenmedik bir durumda veriler kaybolabilir.
+
+RDB Files (Snapshotting - Anlik Goruntuleme): Bu yontemde,
+Redis belirli araliklarla tum veritabanini disk uzerine anlik bir
+goruntu olarak kaydeder. Anlik goruntu, veritabaninin belirli bir
+anindaki durumunu temsil eder. Bu dosyalar genellikle "dump.rdb" gibi
+adlandirilir. Snapshotting, genellikle disk kullanimini ve yedekleme
+surelerini azaltir, ancak son anlik goruntu arasindaki degisiklikler
+kaydedilmez.
+
+AOF (Append-Only File - Yalnizca Ekleme Dosyasi): AOF yonteminde,
+Redis tum yazma islemlerini bir dosyaya kaydeder. Bu dosya, Redis'in
+yazma islemlerini sirali olarak kaydeder, boylece veri kaybi onlenir.
+ Her yazma islemi dosyanin sonuna eklenir. Bu dosya genellikle
+ "appendonly.aof" gibi adlandirilir. AOF dosyasi, Redis sunucusu
+ yeniden baslatildiginda veya kurtarma islemi gerektiginde kullanilarak
+  veritabani durumu geri yuklenir.
+
+Bu uc Redis Persistence secenegi farkli avantajlar ve dezavantajlar
+sunar. No Persistence yuksek performans saglar ancak veri kaybi
+riski vardir. RDB Files anlik goruntu alirken disk alani
+kullanimini minimize eder. AOF ise veri kaybini onler ve daha
+guvenilir bir geri yukleme islemi saglar. Uygulama gereksinimlerine
+ve tercihlere bagli olarak, bu seceneklerden biri veya bir
+ kombinasyonu secilebilir.
+
+1:40
