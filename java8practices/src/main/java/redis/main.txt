@@ -86,4 +86,8 @@ guvenilir bir geri yukleme islemi saglar. Uygulama gereksinimlerine
 ve tercihlere bagli olarak, bu seceneklerden biri veya bir
  kombinasyonu secilebilir.
 
-1:40
+@Cacheable :
+
+@CacheEvict :
+
+@CachePut :
