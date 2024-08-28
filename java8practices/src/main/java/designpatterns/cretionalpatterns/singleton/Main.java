@@ -1,6 +1,7 @@
 package DesignPatterns.cretionalpatterns.singleton;
 
 import static DesignPatterns.cretionalpatterns.singleton.Singleton.getInstance;
+
 public class Main {
     public static void main(String[] args) {
 

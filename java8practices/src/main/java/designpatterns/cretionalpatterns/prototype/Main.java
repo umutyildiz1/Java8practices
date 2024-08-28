@@ -6,7 +6,7 @@ public class Main {
         Rectangle rectangle = new Rectangle();
         rectangle.setHeight(123);
         rectangle.setWeight(456);
-        Rectangle rectangle1 = (Rectangle) rectangle.clone();
+        Rectangle rectangle1 = (Rectangle) rectangle.clone(); // This pattern can be applied with " Cloneable " interface
         Rectangle rectangle2 = (Rectangle) rectangle.clone();
 
         System.out.println("Rectangle : " + rectangle);
