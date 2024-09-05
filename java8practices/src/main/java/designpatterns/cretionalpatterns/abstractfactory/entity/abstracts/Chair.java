@@ -1,4 +1,4 @@
-package designpatterns.cretionalpatterns.abstractfactory.entity.abstracts;
+package DesignPatterns.cretionalpatterns.abstractfactory.entity.abstracts;
 
 public abstract class Chair {
     private final String type;

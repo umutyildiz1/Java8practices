@@ -1,4 +1,4 @@
-package designpatterns.cretionalpatterns.abstractfactory;
+package DesignPatterns.cretionalpatterns.abstractfactory;
 
 import designpatterns.cretionalpatterns.abstractfactory.constants.ProductType;
 import designpatterns.cretionalpatterns.abstractfactory.factories.FurniterFactory;

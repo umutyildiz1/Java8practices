@@ -1,0 +1,3 @@
+
+Structural Design Patterns, tell us the how to combine objects
+and classes with flexible and efficient way into larger structure.
