@@ -2,6 +2,8 @@ package DesignPatterns.structuralpatterns.adapter;
 
 public class Main {
 
+    //High
+
     //Adapter Design Pattern (Adaptör Tasarım Deseni), yazılım geliştirmede iki uyumsuz arayüze sahip nesnelerin birlikte çalışmasını
     // sağlayan bir tasarım desenidir. Temel amacı, mevcut bir sınıfı veya bileşeni değiştirmeden başka
     // bir sınıfın arayüzüne uyumlu hale getirmektir.

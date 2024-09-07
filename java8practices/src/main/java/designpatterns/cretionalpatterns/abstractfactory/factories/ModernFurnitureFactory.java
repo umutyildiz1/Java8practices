@@ -1,9 +1,9 @@
-package designpatterns.cretionalpatterns.abstractfactory.factories;
+package DesignPatterns.cretionalpatterns.abstractfactory.factories;
 
-import designpatterns.cretionalpatterns.abstractfactory.entity.abstracts.Chair;
-import designpatterns.cretionalpatterns.abstractfactory.entity.abstracts.Sofa;
-import designpatterns.cretionalpatterns.abstractfactory.entity.concretes.chair.ModernChair;
-import designpatterns.cretionalpatterns.abstractfactory.entity.concretes.sofa.ModernSofa;
+import DesignPatterns.cretionalpatterns.abstractfactory.entity.abstracts.Chair;
+import DesignPatterns.cretionalpatterns.abstractfactory.entity.abstracts.Sofa;
+import DesignPatterns.cretionalpatterns.abstractfactory.entity.concretes.chair.ModernChair;
+import DesignPatterns.cretionalpatterns.abstractfactory.entity.concretes.sofa.ModernSofa;
 
 public class ModernFurnitureFactory implements FurniterFactory {
 

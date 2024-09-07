@@ -1,4 +1,4 @@
-package designpatterns.cretionalpatterns.abstractfactory.constants;
+package DesignPatterns.cretionalpatterns.abstractfactory.constants;
 
 public enum ProductType {
     VICTORIAN("Victorian"),

@@ -1,13 +1,13 @@
 package DesignPatterns.cretionalpatterns.abstractfactory;
 
-import designpatterns.cretionalpatterns.abstractfactory.constants.ProductType;
-import designpatterns.cretionalpatterns.abstractfactory.factories.FurniterFactory;
-import designpatterns.cretionalpatterns.abstractfactory.factories.ModernFurnitureFactory;
-import designpatterns.cretionalpatterns.abstractfactory.factories.VictorianFurnitureFactory;
+import DesignPatterns.cretionalpatterns.abstractfactory.constants.ProductType;
+import DesignPatterns.cretionalpatterns.abstractfactory.factories.FurniterFactory;
+import DesignPatterns.cretionalpatterns.abstractfactory.factories.ModernFurnitureFactory;
+import DesignPatterns.cretionalpatterns.abstractfactory.factories.VictorianFurnitureFactory;
 
 import java.util.Scanner;
 
-import static designpatterns.cretionalpatterns.abstractfactory.constants.ProductType.VICTORIAN;
+import static DesignPatterns.cretionalpatterns.abstractfactory.constants.ProductType.VICTORIAN;
 
 public class Main {
     public static void main(String[] args) {

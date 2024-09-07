@@ -1,8 +1,8 @@
-package designpatterns.cretionalpatterns.abstractfactory.entity.concretes.sofa;
+package DesignPatterns.cretionalpatterns.abstractfactory.entity.concretes.sofa;
 
-import designpatterns.cretionalpatterns.abstractfactory.entity.abstracts.Sofa;
+import DesignPatterns.cretionalpatterns.abstractfactory.entity.abstracts.Sofa;
 
-import static designpatterns.cretionalpatterns.abstractfactory.constants.ProductType.VICTORIAN;
+import static DesignPatterns.cretionalpatterns.abstractfactory.constants.ProductType.VICTORIAN;
 
 public class VictorianSofa extends Sofa {
     public VictorianSofa() {

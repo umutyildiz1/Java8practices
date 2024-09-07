@@ -61,6 +61,8 @@ public class Main {
     public static void main(String[] args) {
         main();
 
+        //Low
+
         //Bridge Design Pattern büyük bir classı birbiri ile ilişkili fakat bağımsız iki ayrı hiyerarşiye böler --> Abstraction ve Implementation
         //Bridge deseni, iki ana bileşen içerir:
         //
