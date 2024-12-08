@@ -101,7 +101,7 @@ img pngde masterdan slave veritabanlarına datayı sync etme şekilleri vardır.
 TODO sync çözümleri
 Master Slave img pngde
 Peer to Peer img1 pngde async data
-master to master sync data Bankacılık sistemleri
+master to master sync data Bankacılık sistemleri TODO PRO CONS
 
 More performance --> Cache mechanism
 
