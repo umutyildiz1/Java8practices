@@ -1,0 +1,23 @@
+OOP
+--> Amaç kodu daha modüler, reusable ve maintainable olmasıdır.
+
+--
+* Encapsulation
+* Polymorphism
+* Abstraction
+* Inheritance
+
+-- ENCAPSULATION
+--> Amaç bir classın propertylerine dışarıdan direkt olarak erişilmesinin engellenmesidir.
+Getter setter metotlar kullanılarak propertye erişim daha sağlıklı olur
+
+-- Polymorphism
+Metotların çalışmasını verilen parametreye göre veya owner class'a göre çok biçimli olarak çalışmasıdır.
+-Method overriding
+-Method overloading
+
+-- Abstraction
+Metotların iç çalışma prensibinin dışarıdan gizlenmesidir. Classlarda interface ve abstract classlar yoluyla gerçekleşir
+
+-- Inheritance
+Bir classın özelliklerinin sub classlara aktarılmasıdır. Increase reusability

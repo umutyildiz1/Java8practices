@@ -1,0 +1,60 @@
+1. Mikroservislerin Temellerini Öğrenin
+a) Mikroservis Nedir?
+Monolitik mimarilerle karşılaştırarak mikroservislerin avantajlarını ve dezavantajlarını öğrenin.
+Mikroservislerin temel ilkelerini araştırın:
+Tek bir işlevsellik (Single Responsibility Principle).
+Bağımsız dağıtılabilirlik.
+Zayıf bağlılık ve yüksek uyum (Loose coupling, high cohesion).
+b) Teorik Bilgi Kaynakları
+Kitaplar:
+"Building Microservices" - Sam Newman
+"Monolith to Microservices" - Sam Newman
+Videolar ve Kurslar:
+YouTube ve Udemy’deki temel mikroservis dersleri.
+Pluralsight veya Coursera kursları.
+2. Java ile Mikroservis Geliştirme
+a) Java Ekosistemini Hazırlayın
+Java 11 veya üstü bir sürümü kullanın.
+Spring Boot ve Spring Cloud kütüphanelerine aşinalık kazanın.
+Maven veya Gradle ile bağımlılık yönetimini öğrenin.
+b) Spring Boot ile Başlayın
+İlk mikroservisinizi Spring Boot ile geliştirin.
+RESTful bir API oluşturun ve temel CRUD işlemlerini uygulayın.
+DTO, Service, Repository gibi katmanları yapılandırarak temiz kod yazmayı öğrenin.
+c) Spring Cloud Öğrenin
+Config Server: Merkezi yapılandırma yönetimini öğrenin.
+Eureka: Servis keşfi ve kayıt işlemlerini anlayın.
+Zuul veya Spring Cloud Gateway: API Gateway kullanımını deneyimleyin.
+Hystrix veya Resilience4j: Hata tolerans mekanizmalarını öğrenin (Circuit Breaker).
+3. Veri Yönetimi
+a) Veri Tabanı Tasarımı
+Mikroservislerde veritabanı ayrışmasını (Database per service) öğrenin.
+PostgreSQL, MongoDB gibi veri tabanlarıyla çalışın.
+b) Mesajlaşma ve Event-Driven Architecture
+RabbitMQ, Kafka gibi mesajlaşma sistemlerini öğrenin.
+Event Sourcing ve CQRS tasarım modellerine göz atın.
+4. Mikroservislerin Dağıtımı ve Yönetimi
+a) Konteynerizasyon ve Orkestrasyon
+Docker: Uygulamanızı konteynerize edin.
+Kubernetes: Mikroservislerinizi yönetmek için orkestrasyon araçlarını kullanmayı öğrenin.
+b) CI/CD Süreçleri
+Jenkins, GitHub Actions veya GitLab CI/CD gibi araçlarla sürekli entegrasyon ve dağıtım süreçlerini öğrenin.
+c) Bulut Hizmetleri
+AWS, Azure veya Google Cloud gibi bulut platformlarında mikroservisleri çalıştırmayı deneyin.
+5. İzleme ve Performans Yönetimi
+Logging: ELK Stack (Elasticsearch, Logstash, Kibana) veya Grafana gibi araçlarla log yönetimi yapın.
+Monitoring: Prometheus ve Grafana kullanarak sistem izleme ve performans analizi yapın.
+Distributed Tracing: Zipkin veya Jaeger ile mikroservislerinizi izleyin.
+6. Pratik ve Gerçek Dünya Projeleri
+a) Basit Projeler
+Bir kullanıcı yönetim sistemi geliştirin (kullanıcı kayıt, oturum açma vb.).
+Ürün kataloğu ve sipariş yönetimi gibi bağımsız servislerden oluşan bir e-ticaret sistemi kurun.
+b) Karmaşık Projeler
+Kafka veya RabbitMQ kullanarak bir mesajlaşma altyapısı entegre edin.
+Servisler arası iletişim için REST yerine gRPC’yi deneyin.
+Kubernetes üzerinde ölçeklenebilir bir mikroservis altyapısı tasarlayın.
+7. Topluluk ve Öğrenim Kaynakları
+Open Source Projelere Katılın: GitHub’daki mikroservis projelerine katkıda bulunun.
+Blog Yazın: Öğrendiklerinizi paylaşarak bilgilerinizi pekiştirin.
+Konferanslara Katılın: Java veya mikroservis odaklı etkinliklere katılarak uzmanlardan öğrenin.
+Bu adımları takip ederek hem mikroservis mimarisini hem de Java ile uygulanışını derinlemesine öğrenebilirsiniz. İlk projelerinizde karmaşıklığı düşük tutarak ilerleyebilir ve zamanla daha büyük sistemlere geçebilirsiniz.
