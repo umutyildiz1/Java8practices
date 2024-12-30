@@ -13,7 +13,7 @@ public class House {
         this.hasSwimmingPool = builder.hasSwimmingPool;
     }
 
-    public static class HouseBuilder {
+    public static class HouseBuilder {//Fluent Interface
         private int doors;
         private int windows;
         private boolean hasGarage;
