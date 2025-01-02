@@ -11,6 +11,11 @@ public class streampractices {
         //GOAL : manipulate the collections with order using pipeline
         // provide more readable and effective code
 
+        //Difference between stream and parallel stream is multithreading
+        // stream executes only one thread and it guarantees the sequence --> less memory usage
+        // parallel stream executes multi thread and it doesnt guarantee the sequence --> useful for big data
+        // dont use stateful processes with parallel stream !!!!
+
         List<Fruit> fruitBasket = List.of(APPLE, BANANA, APPLE , APPLE, ORANGE);
 
         //filter() : filter the elements of list by given condition -- return list items which provides the condition
@@ -20,11 +25,49 @@ public class streampractices {
                 .collect(Collectors.toList());
         System.out.println("filtered : " + filtered);
 
-        //anyMatch() :
-        //allMatch() :
+        //anyMatch() : if any elements provides the condition for matching return true, else false
+
+        Boolean result = fruitBasket.stream()
+                .anyMatch(fruit -> fruit.equals(MELON));
+        System.out.println("anyMatch() : " + result);
+
+        //allMatch() : all elements must match with given condition --> return true, else false
+        //noneMatch() : no elements must match with given condition --> return true, else false
+
+        result = fruitBasket.stream()
+                .allMatch(fruit -> !fruit.equals(MELON));
+        System.out.println("allMatch() : " + result);
+
+        //same business
+
+        result = fruitBasket.stream()
+                .noneMatch(fruit -> fruit.equals(MELON));
+        System.out.println("noneMatch() : " + result);
+
         //forEach() :
+        fruitBasket.stream()
+                .forEach(fruit -> System.out.println("forEach fruit : " + fruit));
+
         //forEachOrdered() :
-        //findAny() :
+
+        fruitBasket.stream()
+                .forEachOrdered(fruit -> System.out.println("forEachOrdered fruit : " + fruit));
+
+        //difference between forEach() and forEachOrdered() is sequence.
+        //when parallel stream is used, forEach is not guarantee the sequence but forEachOrdered is .
+        System.out.println("*****************************");
+        System.out.println("Difference between ForEach and ForEachOrdered");
+        System.out.println("Base list : " + fruitBasket);
+
+        fruitBasket.parallelStream()
+                .forEach(fruit -> System.out.println("forEach fruit : " + fruit));
+        System.out.println("**************");
+        fruitBasket.stream()
+                .forEachOrdered(fruit -> System.out.println("forEachOrdered fruit : " + fruit));
+
+
+        System.out.println("*****************************");
+
         //distinct() :
         //collect() :
         //findAny() :
@@ -32,7 +75,6 @@ public class streampractices {
         //flatMap() : vs map():
         //limit() :
         //map() :
-        //noneMatch() :
         //peek() :
         //reduce() :
         //skip() :
@@ -117,7 +159,8 @@ public class streampractices {
     public enum Fruit{
         APPLE,
         BANANA,
-        ORANGE
+        ORANGE,
+        MELON
 
     }
 }
