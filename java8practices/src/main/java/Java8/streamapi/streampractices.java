@@ -1,7 +1,10 @@
 package Java8.streamapi;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static Java8.streamapi.streampractices.Fruit.*;
@@ -14,9 +17,9 @@ public class streampractices {
         //Difference between stream and parallel stream is multithreading
         // stream executes only one thread and it guarantees the sequence --> less memory usage
         // parallel stream executes multi thread and it doesnt guarantee the sequence --> useful for big data
-        // dont use stateful processes with parallel stream !!!!
+        // dont use "stateful" processes with parallel stream !!!!
 
-        List<Fruit> fruitBasket = List.of(APPLE, BANANA, APPLE , APPLE, ORANGE);
+        List<Fruit> fruitBasket = List.of(APPLE, BANANA, APPLE, APPLE, ORANGE);
 
         //filter() : filter the elements of list by given condition -- return list items which provides the condition
 
@@ -69,38 +72,67 @@ public class streampractices {
         System.out.println("*****************************");
 
         //distinct() :
-        //collect() :
-        //findAny() :
+
+        Instant a = Instant.now();
+        var list = fruitBasket.stream()
+                .distinct()
+                .collect(Collectors.toList());
+        Instant b = Instant.now();
+        System.out.println(String.format("distinct() list : %s, time : %d", list, Duration.between(a, b).toMillis()));
+
+        a = Instant.now();
+        var list1 = fruitBasket.parallelStream()
+                //.sequential() improve the performance for distinct() when parallel stream is used
+                .distinct()
+                .collect(Collectors.toList());
+        b = Instant.now();
+        System.out.println(String.format("distinct() parallel list : %s, time : %d", list1, Duration.between(a, b).toMillis()));
+        System.out.println("*****************************");
+
+        //findAny() : returns an Optional with random item from list
+
+        var item = fruitBasket.stream()
+                .findAny();
+        System.out.println("findAny() sequential item : " + item.get());
+
+        item = fruitBasket.parallelStream()
+                .findAny();
+        System.out.println("findAny() parallel item : " + item.get());
+
+        //findAny() is more fast when parallel stream is used because it returns a random item
+        //but when parallel stream is used, findFirst tries to find first item of list
+        //on the other hand there is no significant performance difference between findFirst() and findAny()
+        //when sequential stream is used
+
+        System.out.println("*****************************");
+
+        //limit() :
+        list = fruitBasket.stream()
+                .limit(2)
+                .collect(Collectors.toList());
+        System.out.println("limit() sequential list : " + list);
+
+        System.out.println("*****************************");
         //dropWhile() :
         //flatMap() : vs map():
-        //limit() :
         //map() :
         //peek() :
         //reduce() :
         //skip() :
         //sorted() :
         //takeWhile :
+        //collect() :
+        //unordered():
+        //ordered():
+        //sequential():
         //toArray vs toList() vs collect(Collectors.toList()) :
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         //PRACTICE
 
-
+        System.out.println("**************PRACTICESSS***************");
         List<String> strings = List.of("Geek_First", "Geek_2", "Geek_2", "Geek_2", "Geek_3", "Geek_4", "Geek_Last");
-        List<Integer> integers = List.of(8,9,5,34,23,6,73,4);
+        List<Integer> integers = List.of(8, 9, 5, 34, 23, 6, 73, 4);
 
         //find first
         var firstString = strings.stream()
@@ -110,7 +142,7 @@ public class streampractices {
                 .findFirst()
                 .orElse(-1);
 
-        System.out.println(String.format("first elements : %s, %d",firstString, firstInteger));
+        System.out.println(String.format("first elements : %s, %d", firstString, firstInteger));
 
         //find max and min
         var max1 = strings.stream()
@@ -139,24 +171,9 @@ public class streampractices {
         System.out.println("distinct " + distinct);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
-    public enum Fruit{
+    public enum Fruit {
         APPLE,
         BANANA,
         ORANGE,

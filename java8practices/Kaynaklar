@@ -17,7 +17,6 @@ Learning
 * Message Broker
 * CQRS and EventSourcing
 * Redis Lettuce
-* Metot Chaining
 * Mikroserviste global exception handling rollback mechanism --> https://daily.dev/blog/microservices-rollback-ensuring-data-consistency bunu detaylı araştır
 Microservice Transaction Management
 *OOP prensipleri 4 main principle
