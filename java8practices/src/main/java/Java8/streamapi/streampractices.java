@@ -113,22 +113,24 @@ public class streampractices {
         System.out.println("limit() sequential list : " + list);
 
         System.out.println("*****************************");
-        //dropWhile() :
+
         //flatMap() : vs map():
         //map() :
         //peek() :
         //reduce() :
         //skip() :
         //sorted() :
+        //dropWhile() :
         //takeWhile :
         //collect() :
         //unordered():
         //ordered():
         //sequential():
         //toArray vs toList() vs collect(Collectors.toList()) :
+        //ordered parallel pipelines, ?  difference between sequential vs ordered ?
 
 
-        //PRACTICE
+                //PRACTICE
 
         System.out.println("**************PRACTICESSS***************");
         List<String> strings = List.of("Geek_First", "Geek_2", "Geek_2", "Geek_2", "Geek_3", "Geek_4", "Geek_Last");
