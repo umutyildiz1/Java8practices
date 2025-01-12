@@ -2,6 +2,7 @@ package Java8.streamapi;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -115,7 +116,27 @@ public class streampractices {
         System.out.println("*****************************");
 
         //flatMap() : vs map():
-        //map() :
+        //flatmap is used for transformation and flatten nested lists includes sub streams
+        //but map is used for only transformation of streams
+
+        List<List<String>> nested = List.of(
+                List.of("A", "B"),
+                List.of("C", "D"),
+                List.of("F", "G")
+        );
+
+        var q = nested.stream()
+                .map(n -> n.stream())
+                .collect(Collectors.toList());
+        System.out.println("map -> " + q);
+
+        var w = nested.stream()
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
+        System.out.println("flatMap -> " + w);
+
+        System.out.println("*****************************");
         //peek() :
         //reduce() :
         //skip() :
@@ -126,11 +147,12 @@ public class streampractices {
         //unordered():
         //ordered():
         //sequential():
+        //mapMulti()
         //toArray vs toList() vs collect(Collectors.toList()) :
         //ordered parallel pipelines, ?  difference between sequential vs ordered ?
 
 
-                //PRACTICE
+        //PRACTICE
 
         System.out.println("**************PRACTICESSS***************");
         List<String> strings = List.of("Geek_First", "Geek_2", "Geek_2", "Geek_2", "Geek_3", "Geek_4", "Geek_Last");
