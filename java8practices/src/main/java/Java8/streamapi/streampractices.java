@@ -5,7 +5,7 @@ import java.time.Instant;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import static Java8.streamapi.streampractices.Fruit.*;
@@ -18,9 +18,10 @@ public class streampractices {
         //Difference between stream and parallel stream is multithreading
         // stream executes only one thread and it guarantees the sequence --> less memory usage
         // parallel stream executes multi thread and it doesnt guarantee the sequence --> useful for big data
-        // dont use "stateful" processes with parallel stream !!!!
+        // dont use "stateful" processes with parallel stream !!!! because of performance
 
         List<Fruit> fruitBasket = List.of(APPLE, BANANA, APPLE, APPLE, ORANGE);
+        List<String> nums = List.of("1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5");
 
         //filter() : filter the elements of list by given condition -- return list items which provides the condition
 
@@ -137,10 +138,49 @@ public class streampractices {
         System.out.println("flatMap -> " + w);
 
         System.out.println("*****************************");
-        //peek() :
+
+        //peek() : peek is used for debugging the stream
+        // should not change the datas of stream
+        AtomicInteger counter = new AtomicInteger();
+        fruitBasket.stream()
+                .peek(ab -> {
+                    counter.getAndIncrement();
+                    System.out.println("Peek Item : " + ab);
+                })
+                .collect(Collectors.toList());
+        System.out.println("*****************************");
         //reduce() :
+        //combine elements with a process such as addition subtraction or string concatenation get only one result
+        var result1 = nums.stream()
+                .reduce(String::concat);
+        System.out.println("sequential result : " + result1.get());
+        var result2 = nums.parallelStream()
+                .peek(System.out::print)
+                .reduce("", String::concat, (y, u) -> y + u);
+        System.out.println("parallel result : " + result2);
+        System.out.println("isEqual : " + result1.get().equals(result2));//base order is protected because
+        //despite threads, reduce saves the order
+        System.out.println("*****************************");
+
         //skip() :
+        long start = System.currentTimeMillis();
+        var list2 = nums.stream()
+                .skip(9)
+                .collect(Collectors.toList());
+        long end = System.currentTimeMillis();
+        System.out.println(String.format("skip sequential : %s",list2));
+        System.out.println(String.format("skip sequential : %d", end-start));
+        start = System.currentTimeMillis();
+        var list3 = nums.parallelStream()
+                .skip(9)
+                .collect(Collectors.toList());
+        end = System.currentTimeMillis();
+        System.out.println(String.format("skip parallel : %s",list3));
+        System.out.println(String.format("skip parallel : %d",end-start));
+        //stateful operations should not use with parallel streams!! because of performance and consistency
+
         //sorted() :
+        System.out.println("*****************************");
         //dropWhile() :
         //takeWhile :
         //collect() :
