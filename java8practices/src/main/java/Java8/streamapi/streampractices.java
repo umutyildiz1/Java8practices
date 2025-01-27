@@ -168,24 +168,35 @@ public class streampractices {
                 .skip(9)
                 .collect(Collectors.toList());
         long end = System.currentTimeMillis();
-        System.out.println(String.format("skip sequential : %s",list2));
-        System.out.println(String.format("skip sequential : %d", end-start));
+        System.out.println(String.format("skip sequential : %s", list2));
+        System.out.println(String.format("skip sequential : %d", end - start));
         start = System.currentTimeMillis();
         var list3 = nums.parallelStream()
                 .skip(9)
                 .collect(Collectors.toList());
         end = System.currentTimeMillis();
-        System.out.println(String.format("skip parallel : %s",list3));
-        System.out.println(String.format("skip parallel : %d",end-start));
+        System.out.println(String.format("skip parallel : %s", list3));
+        System.out.println(String.format("skip parallel : %d", end - start));
         //stateful operations should not use with parallel streams!! because of performance and consistency
 
         //sorted() :
         System.out.println("*****************************");
+        var sortedList = fruitBasket.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        var orderSortedList = fruitBasket.stream()
+                .sorted(Comparator.comparing(Fruit::getOrder))
+                        .collect(Collectors.toList());
+        System.out.println("unsorted list : " + fruitBasket);
+        System.out.println("sorted list without comparator : " + sortedList);
+        System.out.println("order sorted list with comparator : " + orderSortedList);
+
+        //unordered():
+        System.out.println("*****************************");
+        //ordered():
         //dropWhile() :
         //takeWhile :
         //collect() :
-        //unordered():
-        //ordered():
         //sequential():
         //mapMulti()
         //toArray vs toList() vs collect(Collectors.toList()) :
@@ -238,10 +249,18 @@ public class streampractices {
     }
 
     public enum Fruit {
-        APPLE,
-        BANANA,
-        ORANGE,
-        MELON
+        APPLE(4),
+        BANANA(3),
+        ORANGE(2),
+        MELON(1);
+        private final Integer order;
 
+        Fruit(Integer order) {
+            this.order = order;
+        }
+
+        public Integer getOrder() {
+            return order;
+        }
     }
 }

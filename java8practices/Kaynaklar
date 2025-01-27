@@ -23,3 +23,4 @@ Microservice Transaction Management
 *saga pattern
 * microservices pro cons
 * design patterns
+* custom annotations with all document like "pointcut"
