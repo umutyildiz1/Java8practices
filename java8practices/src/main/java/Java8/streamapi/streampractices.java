@@ -2,6 +2,7 @@ package Java8.streamapi;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
@@ -186,14 +187,28 @@ public class streampractices {
                 .collect(Collectors.toList());
         var orderSortedList = fruitBasket.stream()
                 .sorted(Comparator.comparing(Fruit::getOrder))
-                        .collect(Collectors.toList());
+                .collect(Collectors.toList());
         System.out.println("unsorted list : " + fruitBasket);
         System.out.println("sorted list without comparator : " + sortedList);
         System.out.println("order sorted list with comparator : " + orderSortedList);
 
         //unordered():
         System.out.println("*****************************");
-        //ordered():
+        //to improve performance of parallel stream or if order is not important you can use
+        var numList = Arrays.asList(1, 2, 3, 4, 5);
+
+        System.out.println("------ Unordered list without parallel stream ----");
+        numList.stream()
+                .unordered()
+                .forEach(System.out::println);// it does not guarantee the order
+        System.out.println("------ Unordered list with parallel stream ----");
+        numList.parallelStream()
+                .forEach(System.out::println);
+        System.out.println("------ Unordered list for each ordered with parallel stream ----");
+        numList.parallelStream()
+                .unordered()
+                .forEachOrdered(System.out::println);
+
         //dropWhile() :
         //takeWhile :
         //collect() :
