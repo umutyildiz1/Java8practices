@@ -209,8 +209,28 @@ public class streampractices {
                 .unordered()
                 .forEachOrdered(System.out::println);
 
-        //dropWhile() :
-        //takeWhile :
+        //dropWhile() : drop the element of list which provides the condition
+        // drop the items of list until the condition is not provided
+        // if the element of list provide the condition returns the remaining items
+        // include first element which providing the condition
+        System.out.println("*****************************");
+        System.out.println("base list : " + fruitBasket);
+        var result4 = fruitBasket.stream()
+                .dropWhile(fruit -> !fruit.equals(ORANGE))//drop the fruits which not equal orange
+                .collect(Collectors.toList());
+        System.out.println("dropWhile list : " + result4);
+        System.out.print("parallel dropWhile list : ");
+        fruitBasket.parallelStream()
+                .unordered()
+                .dropWhile(fruit -> !fruit.equals(ORANGE))
+                .forEach(System.out::println);
+
+        //takeWhile : take the element of list which provides the condition
+        // reverse case of dropWhile
+        var result5 = fruitBasket.stream()
+                .takeWhile(fruit -> !fruit.equals(ORANGE))//take the fruits which not equal orange
+                .collect(Collectors.toList());
+        System.out.println("takeWhile list : " + result5);
         //collect() :
         //sequential():
         //mapMulti()
