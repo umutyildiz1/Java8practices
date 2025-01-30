@@ -284,6 +284,16 @@ public class streampractices {
 
         System.out.println(String.format("min : %d, %s", min, min1));
 
+        var newMin = integers.stream()
+                .collect(Collectors.minBy(Comparator.naturalOrder()))
+                .orElse(-1);
+
+        var newMin1 = strings.stream()
+                .collect(Collectors.minBy(Comparator.naturalOrder()))
+                .orElse("");
+
+        System.out.println(String.format("newMin : %d, %s", newMin, newMin1));
+
         var distinct = strings.stream()
                 .distinct()
                 .collect(Collectors.toList());
