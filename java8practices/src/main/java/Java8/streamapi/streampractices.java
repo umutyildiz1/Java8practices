@@ -231,7 +231,16 @@ public class streampractices {
                 .takeWhile(fruit -> !fruit.equals(ORANGE))//take the fruits which not equal orange
                 .collect(Collectors.toList());
         System.out.println("takeWhile list : " + result5);
-        //collect() :
+        
+        //collect() : purpose of the collect() is the gathering the elements of stream
+        //it transforms the stream to list, map or set
+        System.out.println("*****************************");
+        var result6 = fruitBasket.stream()
+                //.collect(Collectors.toSet())
+                .collect(Collectors.toMap(fruit-> fruit, Fruit::getOrder,Integer::sum));
+                //.collect(Collectors.toList())
+        System.out.println("collect to map : " + result6);
+        System.out.println("type : " + result6.getClass());
         //sequential():
         //mapMulti()
         //toArray vs toList() vs collect(Collectors.toList()) :
