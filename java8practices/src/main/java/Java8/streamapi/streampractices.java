@@ -231,21 +231,50 @@ public class streampractices {
                 .takeWhile(fruit -> !fruit.equals(ORANGE))//take the fruits which not equal orange
                 .collect(Collectors.toList());
         System.out.println("takeWhile list : " + result5);
-        
+
         //collect() : purpose of the collect() is the gathering the elements of stream
         //it transforms the stream to list, map or set
         System.out.println("*****************************");
         var result6 = fruitBasket.stream()
                 //.collect(Collectors.toSet())
-                .collect(Collectors.toMap(fruit-> fruit, Fruit::getOrder,Integer::sum));
-                //.collect(Collectors.toList())
+                .collect(Collectors.toMap(fruit -> fruit, Fruit::getOrder, Integer::sum));
+        //.collect(Collectors.toList())
         System.out.println("collect to map : " + result6);
         System.out.println("type : " + result6.getClass());
-        //sequential():
-        //mapMulti()
-        //toArray vs toList() vs collect(Collectors.toList()) :
-        //ordered parallel pipelines, ?  difference between sequential vs ordered ?
 
+        //sequential():
+        System.out.println("*****************************");
+
+        //sequential is used only with parallel streams because default of stream is sequential
+        //it convert the number of working threads with parallel to single thread
+
+        fruitBasket.parallelStream()
+                .forEach(System.out::println);
+        System.out.println("sequential : ");
+        fruitBasket.parallelStream()
+                .sequential()
+                .forEach(System.out::println);
+
+        //mapMulti()
+        //flatmap creates unnecessary streams
+        //with jdk16 mapmulti can be used instead of flatmap because of performance
+
+
+        //toArray vs toList() vs collect(Collectors.toList()) :
+        var toArrayResult = fruitBasket.stream()
+                .toArray();//returns array
+
+        //var toListResult = fruitBasket.stream()
+                //.toList();//jdk 16 returns unmodifiable list
+
+        var collectorToListResult = fruitBasket.stream()
+                .collect(Collectors.toList());
+
+        System.out.println("toArrayResult : " + toArrayResult[0] +" type" + toArrayResult.getClass());
+        System.out.println("collectorToListResult : " + collectorToListResult +" type" + collectorToListResult.getClass());
+
+        //ordered parallel pipelines, ?  difference between sequential vs ordered ?
+        //stream operations and pipeline type
 
         //PRACTICE
 
