@@ -39,7 +39,10 @@ bütün proje yerine sadece ağır trafik alan servis scale edilebilmelidir.
 --> Buradaki sıkıntı bütün yük aslında 3 mikroservis içinde aynı yük ve bir domain akışı üzerindeki
 deployment bağımsız değildir.
 
-dk 41
+Nasıl mikroservis yazmalıyız ?
+!!! Projeye mikroservis olarak başlayabiliriz. "ÖNERİLMEZ"
+!!! Projeye monolith olarak başlayıp sonrasında mikroservislere bölebiliriz.
 
+Mikroservis yaklaşımları
 
-
+1.10

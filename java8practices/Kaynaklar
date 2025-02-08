@@ -27,3 +27,4 @@ Microservice Transaction Management
 * Data structures
 * Distribute locking and locking strategies
 * ELK stack
+* Grpc
