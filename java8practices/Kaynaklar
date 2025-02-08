@@ -25,3 +25,5 @@ Microservice Transaction Management
 * design patterns
 * custom annotations with all document like "pointcut"
 * Data structures
+* Distribute locking and locking strategies
+* ELK stack

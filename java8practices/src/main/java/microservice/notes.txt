@@ -1,0 +1,45 @@
+
+- Mikroservis mimarisi, bağımsız olarak deployment yapılabilen ve bir uygulamayı sub domainlere ayırıp
+küçük servisler halinde çalıştırdığımız bir yapıdır.
+
+Pro's
+
+* Bağımsız deployment ve geliştirme : Her servis ayrı ayrı deployment yapılabilir ve her mikroservis
+farklı dillerle, ekiplerle ve araçlarla geliştirebilir.
+
+* Scability (Ölçeklenebilirlik) : Yoğun trafik alan servislerde sunucu kaynakları bağımsız olarak
+geniştilebilir veya azaltılabilir.
+
+* Durability : Bir servis çökerse sistemin geneli etkilenmez sadece ilgili servis etkilenir.
+
+Cons
+
+* Dağıtık sistem karmaşıklığı : Servisler arası iletişim, veri tutarlığı ve hata yönetimi zorlaşır.
+
+* Ağ trafiği ve performans : Network üzerinde daha fazla trafik olduğundan dolayı performans düşüklüğü yaşanabilir.
+
+* Dağıtık veri yönetimi : Her mikroservis kendi ayrı veritabanında çalışıyorsa veri senkronizasyonu daha zor olur.
+
+****************************************************************
+Mikroservis ne değildir !
+* Birden fazla domainin iş yükünü barındıran servisler mikroservis değildir
+
+* Bağımsız deployment yapılamayan servisler mikroservis değildir.
+
+* Başka projelere bağımlılık oluşturan veya başka bir projede yapılan değişiklikten etkilenen -build & compile-
+olamayan projeler mikroservis değildir.
+
+* Ölçeklenemeyen scalable olmayan servisler mikroservis değildir.
+-- Bütün projede tek bir servis ağır trafik aldığı durumda o servisi scale hale getiremiyorsak aslında monolith benzeri bir durum
+söz konusudur. Mikroservis mantığında her iş parçacağı ayrı bir servis olduğundan değişen durumlara ve iş akışlarına göre
+bütün proje yerine sadece ağır trafik alan servis scale edilebilmelidir.
+
+* Domain veya iş akışları yerine iş parçacıklarının oluşturduğu projeler mikroservis değildir.
+-- Controller mikroservisi, Servis mikroservisi, Data katmanı mikroservisi
+--> Buradaki sıkıntı bütün yük aslında 3 mikroservis içinde aynı yük ve bir domain akışı üzerindeki
+deployment bağımsız değildir.
+
+dk 41
+
+
+
