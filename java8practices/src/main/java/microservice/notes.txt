@@ -39,10 +39,37 @@ bütün proje yerine sadece ağır trafik alan servis scale edilebilmelidir.
 --> Buradaki sıkıntı bütün yük aslında 3 mikroservis içinde aynı yük ve bir domain akışı üzerindeki
 deployment bağımsız değildir.
 
+****************************************************************
+
 Nasıl mikroservis yazmalıyız ?
 !!! Projeye mikroservis olarak başlayabiliriz. "ÖNERİLMEZ"
 !!! Projeye monolith olarak başlayıp sonrasında mikroservislere bölebiliriz.
 
-Mikroservis yaklaşımları
+Mikroservis yaklaşımları //Todo
+- BFF Backend for Frontend //todo
+  * Race condition problemi //todo
 
-1.10
+Mikroservis Terminolojisi***
+- Cloud computing //todo
+- Resilience : Mikroservis mimarisi altında çalışan servislerden birinde oluşan hata durumunda
+sistemin genelinin etkilenmeme ve bunu handle edebilme yeteneğidir.
+- Fault Isolation (Tolerance): //Todo resilience ile farkı
+- SOA (Service Oriented Arch) //Todo
+- WOA (Web Oriented Arch) //Todo
+- CAP Theorem (Consistency, Availability, Partition Tolerance) :
+- BASE -- ACID
+
+****************************************************************
+
+Teknoloji
+    - İletişim
+        * RestApi
+        * Grpc
+        * Async communication --> Event driven or Event Source
+        * Message Broker
+    - Load Balancing
+        * Server Side LB
+        * Client Side LB
+    - Orchestration -Auto Scaling //TODO
+    - Service Discovery
+dk 2.10
