@@ -72,4 +72,23 @@ Teknoloji
         * Client Side LB
     - Orchestration -Auto Scaling //TODO
     - Service Discovery
-dk 2.10
+    - Error Debugging
+        * Hystrix
+        * Retry and Timeout Design pattern //todo
+
+****************************************************************
+
+ADVANTAGES
+
+ * Bağımsız :
+    - Development
+    - Scaling
+    - Deployment
+    - Teknoloji seçimi
+    - Testing
+    vs. sağlar
+
+DISADVANTAGES
+* Monolith uygulamalara göre daha karmaşık süreçlere
+* Çok daha yoğun network trafiğine sahiptir.
+* Birden fazla servis yönetimi ve veri tutarlığı daha zordur.
